@@ -11494,3 +11494,71 @@ const testerDb = {
     },
   ],
 };
+
+/*
+Response {
+  size: 0,
+  timeout: 0,
+  [Symbol(Body internals)]: {
+    body: PassThrough {
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kCallback)]: null
+    },
+    disturbed: false,
+    error: null
+  },
+  [Symbol(Response internals)]: {
+    url: 'https://pokeapi.co/api/v2/pokemon/GSDAGSAG',
+    status: 404,
+    statusText: 'Not Found',
+    headers: Headers { [Symbol(map)]: [Object: null prototype] },
+    counter: 0
+  }
+}
+
+Response {
+  size: 0,
+  timeout: 0,
+  [Symbol(Body internals)]: {
+    body: Gunzip {
+      _writeState: [Uint32Array],
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: true,
+      bytesWritten: 0,
+      _handle: [Zlib],
+      _outBuffer: <Buffer 7b 22 61 62 69 6c 69 74 69 65 73 22 3a 5b 7b 22 61 62 69 6c 69 74 79 22 3a 7b 22 6e 61 6d 65 22 3a 22 74 6f 72 72 65 6e 74 22 2c 22 75 72 6c 22 3a 22 ... 16334 more bytes>,
+      _outOffset: 0,
+      _chunkSize: 16384,
+      _defaultFlushFlag: 2,
+      _finishFlushFlag: 2,
+      _defaultFullFlushFlag: 3,
+      _info: undefined,
+      _maxOutputLength: 4294967296,
+      _level: -1,
+      _strategy: 0,
+      [Symbol(kCapture)]: false,
+      [Symbol(kCallback)]: null,
+      [Symbol(kError)]: null
+    },
+    disturbed: false,
+    error: null
+  },
+  [Symbol(Response internals)]: {
+    url: 'https://pokeapi.co/api/v2/pokemon/wartortle',
+    status: 200,
+    statusText: 'OK',
+    headers: Headers { [Symbol(map)]: [Object: null prototype] },
+    counter: 0
+  }
+}
+*/

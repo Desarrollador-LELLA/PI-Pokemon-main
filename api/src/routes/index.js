@@ -13,14 +13,15 @@ const router = Router();
 // Debe devolver solo los datos necesarios para la ruta principal
 router.get('/pokemons', async (req, res) => {
   try {
-    const { name } = req.query;
-    if(name) {
-        res.status(200).json({mensaje: 'En Construccion'});
+    const { nombre } = req.query;
+    if (nombre) {
+      const pokemonNombre = await controlador.getByName(nombre);
+      res.status(200).json({ success: pokemonNombre });
     } else {
-        //const result = await controlador.getListApi();
-        const result = await controlador.getListDb();
-        console.log(result[1].tipos)
-        res.status(200).json({ success: result });
+      const dbList = await controlador.getListDb();
+      const apiList = await controlador.getListApi();
+      const sumando = await dbList.concat(apiList);
+      res.status(200).json({ success: sumando });
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -31,8 +32,14 @@ router.get('/pokemons', async (req, res) => {
 // Obtener el detalle de un pokemon en particular
 // Debe traer solo los datos pedidos en la ruta de detalle de pokemon
 // Tener en cuenta que tiene que funcionar tanto para un id de un pokemon existente en pokeapi o uno creado por ustedes
-router.get('/pokemons/:idPokemon', (req, res) => {
-  
+router.get('/pokemons/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const pokemon = await controlador.getById(id);
+    res.status(200).json({ success: pokemon });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // [ ] GET /pokemons?name="...":
@@ -44,19 +51,45 @@ router.get('/pokemons/:idPokemon', (req, res) => {
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body
 // Crea un pokemon en la base de datos relacionado con sus tipos.
 router.post('/pokemons', async (req, res) => {
-  try{
-    const { nombre, vida, ataque, defensa, velocidad, altura, peso, imagen, tipo } = req.body;
-    const envio = await controlador.addPokemon(nombre, vida, ataque, defensa, velocidad, altura, peso, imagen, tipo);
+  try {
+    const {
+      nombre,
+      vida,
+      ataque,
+      defensa,
+      velocidad,
+      altura,
+      peso,
+      imagen,
+      tipo,
+    } = req.body;
+    const envio = await controlador.addPokemon(
+      nombre,
+      vida,
+      ataque,
+      defensa,
+      velocidad,
+      altura,
+      peso,
+      imagen,
+      tipo
+    );
     envio.success ? res.status(201).json(envio) : res.status(406).json(envio);
-  } catch(err){
+  } catch (err) {
     res.status(500).json({ error: err.message });
   }
-
 });
 
 // [ ] GET /types:
 // Obtener todos los tipos de pokemons posibles
 // En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
-router.get('/types', (req, res) => {});
+router.get('/tipos', async (req, res) => {
+  try{
+    const rTipos = await controlador.getTipos();
+    res.status(200).json({ success: rTipos })
+  } catch(err){
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = router;
