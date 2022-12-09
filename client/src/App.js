@@ -13,7 +13,7 @@ function App() {
       <Route path='pokemons' element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='detalle' element={<DetallePokemon />} />
-        <Route path=':id' element={<CreaPokemon />} />
+        <Route path='crear' element={<CreaPokemon />} />
       </Route>
     </Routes>
   );
