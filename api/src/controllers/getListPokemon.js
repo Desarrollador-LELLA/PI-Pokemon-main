@@ -86,23 +86,23 @@ module.exports = {
       const primerosVeintePoke = await queridoFetchTraedmeEsto(
         'https://pokeapi.co/api/v2/pokemon'
       );
-      const segundosVeintePoke = await queridoFetchTraedmeEsto(
-        primerosVeintePoke.next
-      );
-      const tercerosVeintePoke = await queridoFetchTraedmeEsto(
-        segundosVeintePoke.next
-      );
-      const cuartosVeintePoke = await queridoFetchTraedmeEsto(
-        tercerosVeintePoke.next
-      );
-      const quintosVeintePoke = await queridoFetchTraedmeEsto(
-        cuartosVeintePoke.next
-      );
+      // const segundosVeintePoke = await queridoFetchTraedmeEsto(
+      //   primerosVeintePoke.next
+      // );
+      // const tercerosVeintePoke = await queridoFetchTraedmeEsto(
+      //   segundosVeintePoke.next
+      // );
+      // const cuartosVeintePoke = await queridoFetchTraedmeEsto(
+      //   tercerosVeintePoke.next
+      // );
+      // const quintosVeintePoke = await queridoFetchTraedmeEsto(
+      //   cuartosVeintePoke.next
+      // );
       const apiSuma = await primerosVeintePoke.pokemons
-        .concat(segundosVeintePoke.pokemons)
-        .concat(tercerosVeintePoke.pokemons)
-        .concat(cuartosVeintePoke.pokemons)
-        .concat(quintosVeintePoke.pokemons);
+        // .concat(segundosVeintePoke.pokemons)
+        // .concat(tercerosVeintePoke.pokemons)
+        // .concat(cuartosVeintePoke.pokemons)
+        // .concat(quintosVeintePoke.pokemons);
       return apiSuma;
     } catch (err) {
       throw new Error(err.message);

@@ -3,6 +3,7 @@
     margin: 10px;
     height: calc(100% - 20px);
     min-width: 240px;
+    min-height: 512px;
     box-shadow: 0 0 20px #0007, 1px 0 20px 6px #0008 inset;
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -131,10 +132,10 @@
 }
 
 .contenedorhijo {
-    position: static;
     margin: 10px;
     border: rgba(53, 40, 40, 0.481) solid 4px;
     height: calc(100% - 148px);
+    min-height: 364px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -147,6 +148,7 @@
     background: rgb(201, 201, 201);
     margin: 5px;
     height: calc(100% - 120px);
+    min-height: 244px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -157,6 +159,7 @@
 .pantalla {
     background: rgba(35, 35, 35);
     height: calc(100% - 30px);
+    min-height: 210px;
     margin: 15px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -215,12 +218,12 @@ a {
 }
 
 .botoncrear {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 10px;
     background: rgb(252, 83, 83);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 80px;
     height: 30px;
     box-shadow: 0 0 10px #0007, -1px 0 6px 4px rgba(0, 0, 0, 0.612) inset;
     border-radius: 10px;
@@ -230,6 +233,10 @@ a {
     -o-border-radius: 10px;
 }
 
-h1 {
-    margin: 0;
+#root {
+    min-height: 532px;
 }
+
+/* h1 {
+    margin: 0;
+} */

@@ -1,0 +1,13 @@
+.contenedorcards {
+    /* margin: 0 -5px; */
+    overflow-y: scroll;
+    height: 100%;
+    min-height: 210px;
+}
+
+/* Clear floats after the columns */
+.contenedorcards::after {
+  content: "";
+  display: table;
+  clear: both;
+}

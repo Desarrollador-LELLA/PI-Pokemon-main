@@ -1,0 +1,91 @@
+.card {
+    background: rgb(124, 124, 124);
+    font-weight: bold;
+    text-align: center;
+    border: solid 1px rgb(124, 124, 124);
+    height: 200px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.col {
+    float: left;
+    width: calc(10% - 10px);
+    margin: 5px;
+}
+
+.tipos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tipo {
+    font-size: 12px;
+    background: rgb(117, 101, 101);
+    width: calc(50% - 14px);
+    height: 50%;
+    margin: 4px;
+    padding: 3px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+@media screen and (max-width: 1700px) {
+    .col {
+        width: calc(11.11% - 10px);
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .col {
+        width: calc(12.5% - 10px);
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .col {
+        width: calc(14.28% - 10px);
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .col {
+        width: calc(16.66% - 10px);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .col {
+        width: calc(20% - 10px);
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .col {
+        width: calc(25% - 10px);
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .col {
+        width: calc(33.33% - 10px);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .col {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .col {
+        width: calc(100% - 10px);
+    }
+}
