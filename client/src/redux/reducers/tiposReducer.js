@@ -1,9 +1,13 @@
-import { LISTAR_TIPOS } from '../types/index';
+import {
+  LISTAR_TIPOS,
+  SET_ERROR_TIPOS,
+  SET_LOADING_TIPOS,
+} from '../types/index';
 
 const initialState = {
   listTipos: [],
-  error: '',
-  loading: false,
+  errorTipos: '',
+  loadingTipos: false,
 };
 
 const tiposReducer = (state = initialState, action) => {
@@ -12,6 +16,16 @@ const tiposReducer = (state = initialState, action) => {
       return {
         ...state,
         listTipos: action.payload,
+      };
+    case SET_ERROR_TIPOS:
+      return {
+        ...state,
+        errorTipos: action.payload,
+      };
+    case SET_LOADING_TIPOS:
+      return {
+        ...state,
+        loadingTipos: action.payload,
       };
     default:
       return state;

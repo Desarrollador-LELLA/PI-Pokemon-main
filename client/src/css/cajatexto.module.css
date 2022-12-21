@@ -1,0 +1,21 @@
+.contenedor{
+    display: inline-block;
+    width: 100%;
+}
+
+.contenedor label {
+    font-size: 14px;
+}
+
+.contenedor input {
+    width: calc(100% - 30px);
+    font-size: 17px;
+    height: 20px;
+    border: solid 1px rgb(100, 100, 100);
+    padding: 7px 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

@@ -86,6 +86,7 @@ module.exports = {
       const primerosVeintePoke = await queridoFetchTraedmeEsto(
         'https://pokeapi.co/api/v2/pokemon'
       );
+      //console.log(primerosVeintePoke)
       // const segundosVeintePoke = await queridoFetchTraedmeEsto(
       //   primerosVeintePoke.next
       // );

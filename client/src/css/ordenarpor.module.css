@@ -1,0 +1,8 @@
+.contenedoropciones {
+    display: block;
+}
+
+.contenedorcheck {
+    float: left;
+    width: calc(50%);
+}

@@ -1,0 +1,67 @@
+.contenedor {
+    /* position: relative; */
+    background: rgb(255, 107, 107);
+    cursor: pointer;
+    margin: 2px;
+    padding: 4px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.contenedorsin {
+    /* position: relative; */
+    background: rgb(26, 221, 0);
+    cursor: pointer;
+    margin: 2px;
+    padding: 4px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.contenedordisable {
+    /* position: relative; */
+    background: rgb(148, 134, 134);
+    margin: 2px;
+    padding: 4px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+/* .contenedor input {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+} */
+
+.contenedor div {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contenedorsin div {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contenedordisable div {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}

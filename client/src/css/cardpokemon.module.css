@@ -13,7 +13,7 @@
 
 .col {
     float: left;
-    width: calc(10% - 10px);
+    width: calc(11.11% - 10px);
     margin: 5px;
 }
 
@@ -38,54 +38,56 @@
 
 @media screen and (max-width: 1700px) {
     .col {
-        width: calc(11.11% - 10px);
+        width: calc(12.5% - 10px);
+        display: block;
     }
 }
 
 @media screen and (max-width: 1600px) {
     .col {
-        width: calc(12.5% - 10px);
+        width: calc(14.28% - 10px);
+        display: block;
     }
 }
 
 @media screen and (max-width: 1500px) {
     .col {
-        width: calc(14.28% - 10px);
+        width: calc(16.66% - 10px);
+        display: block;
     }
 }
 
 @media screen and (max-width: 1350px) {
     .col {
-        width: calc(16.66% - 10px);
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .col {
         width: calc(20% - 10px);
+        display: block;
     }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1150px) {
     .col {
         width: calc(25% - 10px);
+        display: block;
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
     .col {
         width: calc(33.33% - 10px);
+        display: block;
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     .col {
         width: calc(50% - 10px);
+        display: block;
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
     .col {
         width: calc(100% - 10px);
+        display: block;
     }
 }

@@ -1,0 +1,13 @@
+.contenedor {
+    width: calc(100% - 15px);
+    height: 100%;
+}
+
+.contenedoropciones {
+    display: block;
+}
+
+.contenedorcheck {
+    float: left;
+    width: calc(50%);
+}

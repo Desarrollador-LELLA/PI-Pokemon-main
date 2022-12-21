@@ -2,12 +2,32 @@ import {
   LISTAR_POKEMONS,
   SET_ERROR_POKEMONS,
   SET_LOADING_POKEMONS,
+  SET_FILTRADO_POKEMONS,
+  ADD_TIPO_FILTRADO_POKEMONS,
+  DEL_TIPO_FILTRADO_POKEMONS,
+  UNICA_TIPO_FILTRADO_POKEMONS,
+  SET_PAGINA_POKEMONS,
 } from '../types/index';
 
 const initialState = {
   listPokemons: [],
-  error: '',
-  loading: false,
+  filtrado: {
+    oddCreados: true,
+    oddApi: true,
+    opSinOrden: true,
+    opDesc: false,
+    opAsce: false,
+    opAZ: false,
+    opZA: false,
+    fptTipos: [],
+    optTodos: true,
+    optSeleUni: false,
+    optSeleMult: false,
+    optSeleMultEx: false,
+  },
+  pagSelec: 1,
+  errorPokemons: '',
+  loadingPokemons: false,
 };
 
 const pokemonsReducer = (state = initialState, action) => {
@@ -20,12 +40,46 @@ const pokemonsReducer = (state = initialState, action) => {
     case SET_ERROR_POKEMONS:
       return {
         ...state,
-        error: action.payload,
+        errorPokemons: action.payload,
       };
     case SET_LOADING_POKEMONS:
       return {
         ...state,
-        loading: action.payload,
+        loadingPokemons: action.payload,
+      };
+    case SET_FILTRADO_POKEMONS:
+      return {
+        ...state,
+        filtrado: { ...state.filtrado, ...action.payload },
+      };
+    case ADD_TIPO_FILTRADO_POKEMONS:
+      return {
+        ...state,
+        filtrado: {
+          ...state.filtrado,
+          fptTipos: [...state.filtrado.fptTipos, action.payload],
+        },
+      };
+    case DEL_TIPO_FILTRADO_POKEMONS:
+      const nuevaElimnado = state.filtrado.fptTipos.filter(
+        (x) => x !== action.payload
+      );
+      return {
+        ...state,
+        filtrado: { ...state.filtrado, fptTipos: nuevaElimnado },
+      };
+    case UNICA_TIPO_FILTRADO_POKEMONS:
+      return {
+        ...state,
+        filtrado: {
+          ...state.filtrado,
+          fptTipos: [action.payload],
+        },
+      };
+    case SET_PAGINA_POKEMONS:
+      return {
+        ...state,
+        pagSelec: action.payload,
       };
     default:
       return state;
