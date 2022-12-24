@@ -87,9 +87,9 @@ module.exports = {
         'https://pokeapi.co/api/v2/pokemon'
       );
       //console.log(primerosVeintePoke)
-      // const segundosVeintePoke = await queridoFetchTraedmeEsto(
-      //   primerosVeintePoke.next
-      // );
+      const segundosVeintePoke = await queridoFetchTraedmeEsto(
+        primerosVeintePoke.next
+      );
       // const tercerosVeintePoke = await queridoFetchTraedmeEsto(
       //   segundosVeintePoke.next
       // );
@@ -100,7 +100,7 @@ module.exports = {
       //   cuartosVeintePoke.next
       // );
       const apiSuma = await primerosVeintePoke.pokemons
-        // .concat(segundosVeintePoke.pokemons)
+        .concat(segundosVeintePoke.pokemons)
         // .concat(tercerosVeintePoke.pokemons)
         // .concat(cuartosVeintePoke.pokemons)
         // .concat(quintosVeintePoke.pokemons);

@@ -3,7 +3,7 @@
     margin: 10px;
     height: calc(100% - 20px);
     min-width: 240px;
-    min-height: 512px;
+    min-height: 622px;
     box-shadow: 0 0 20px #0007, 1px 0 20px 6px #0008 inset;
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -131,10 +131,31 @@
     -o-border-radius: 50%;
 }
 
+.pantallamensajes {
+    margin: 15px 10px 0px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(4, 218, 4);
+    font-size: 16px;
+    font-weight: bold;
+    align-items: center;
+    background: rgba(53, 40, 40);
+    border: rgba(53, 40, 40, 0.481) solid 4px;
+    height: 50px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.pantallamensajes div {
+    margin: auto 0;
+}
+
 .contenedorhijo {
     margin: 10px;
     border: rgba(53, 40, 40, 0.481) solid 4px;
-    height: calc(100% - 148px);
+    height: calc(100% - 220px);
     min-height: 364px;
     border-radius: 10px;
     -webkit-border-radius: 10px;

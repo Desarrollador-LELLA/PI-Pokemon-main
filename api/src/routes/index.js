@@ -3,6 +3,8 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const controlador = require('../controllers/getListPokemon.js');
 
+const fetch = require('node-fetch');
+
 const router = Router();
 
 // Configurar los routers
@@ -11,6 +13,24 @@ const router = Router();
 // [ ] GET /pokemons:
 // Obtener un listado de los pokemons desde pokeapi.
 // Debe devolver solo los datos necesarios para la ruta principal
+router.get('/teste', async (req, res) => {
+  try {
+    const { nombre } = req.query;
+    if (nombre) {
+      console.log(nombre)
+      const pokemonNombre = await fetch('https://api.spoonacular.com/recipes/complexSearch?&apiKey=32969470f1bf4c358bd0be8d5a6b0628&query=' + nombre)
+      .then(res => res.json())
+      .then(data => data)
+      res.status(200).json({ success: pokemonNombre });
+    } else {
+      
+      res.status(200).json({ success: sumando });
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 router.get('/pokemons', async (req, res) => {
   try {
     const { nombre } = req.query;

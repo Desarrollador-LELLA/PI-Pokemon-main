@@ -1,7 +1,10 @@
 .contenedor {
-    display: inline-block;
+    display: flex;
+    margin: 0 0 0 auto;
+    max-width: 200px;
+    padding-left: 15px;
 }
 
 .contenedor button {
-    margin: 5px 15px 0 auto;
+    margin: auto 10px 0 0;
 }

@@ -7,10 +7,13 @@ import {
   DEL_TIPO_FILTRADO_POKEMONS,
   UNICA_TIPO_FILTRADO_POKEMONS,
   SET_PAGINA_POKEMONS,
+  GET_BUSCAR_POKEMON,
+  SET_BUSCAR_POKEMON,
 } from '../types/index';
 
 const initialState = {
   listPokemons: [],
+  buscarPokermon: {},
   filtrado: {
     oddCreados: true,
     oddApi: true,
@@ -80,6 +83,12 @@ const pokemonsReducer = (state = initialState, action) => {
       return {
         ...state,
         pagSelec: action.payload,
+      };
+    case SET_BUSCAR_POKEMON:
+    case GET_BUSCAR_POKEMON:
+      return {
+        ...state,
+        buscarPokermon: action.payload,
       };
     default:
       return state;

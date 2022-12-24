@@ -1,8 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import s from '../../css/layout.module.css';
+import FormBuscar from '../com/FormBuscar';
 
 const Layout = () => {
+
+    const { mensaje } = useSelector(state => state.mensajes)
+
     return (
         <div className={s.contenedor}>
             <div className={s.header}>
@@ -14,7 +19,14 @@ const Layout = () => {
                     <div className={s.coloramarillo}></div>
                     <div className={s.colorverde}></div>
                 </div>
-                <div className={s.segundaheader}></div>
+                <div className={s.segundaheader}>
+                    <FormBuscar />
+                </div>
+            </div>
+            <div className={s.pantallamensajes}>
+                <div>
+                    {mensaje}
+                </div>
             </div>
             <div className={s.contenedorhijo}>
                 <div className={s.pantallaborde}>

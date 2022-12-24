@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getListPokemons, setLoadingPokemons, setErrorPokemons, setPaginaPokemons } from '../../redux/actions/pokemonsAction';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPokemon from '../com/CardPokemon';
 import s from '../../css/home.module.css';
-import FormBuscar from '../com/FormBuscar';
 import FiltroTipos from '../com/FiltroTipos';
 import Boton from '../com/Boton';
 import iconoAnterior from '../imagenes/ic_anterior.svg';
@@ -27,7 +26,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(setLoadingPokemons(true));
         dispatch(getListPokemons());
-        dispatch(setLoadingPokemons(false));
+        //dispatch(setLoadingPokemons(false));
     }, [dispatch]);
 
     const cambiarPagina = (e) => {
@@ -49,8 +48,6 @@ const Home = () => {
         <>
             <div className={s.contenedorhome}>
                 <div className={s.contenedormenu}>
-                    <FormBuscar />
-                    <hr size="8px" color="black" />
                     <FiltroTipos />
                 </div>
                 <div className={s.contenedorcards}>
