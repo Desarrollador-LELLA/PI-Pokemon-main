@@ -4,8 +4,10 @@ import {
   SET_LOADING_TIPOS,
 } from '../types/index';
 
+//http://localhost:3001/tipos
+
 export const getListTipos = () => async (dispatch) => {
-  await fetch('http://localhost:3001/tipos')
+  await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/tipos')
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: LISTAR_TIPOS, payload: data.result });

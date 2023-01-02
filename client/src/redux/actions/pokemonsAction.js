@@ -16,7 +16,8 @@ import {
 
 export const getListPokemons = () => async (dispatch) => {
   // const dis = await pokemons.success
-  const dis = await fetch('http://localhost:3001/pokemons')
+  //http://localhost:3001/pokemons
+  const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons')
     .then((res) => res.json())
     .then((data) => {
       return { type: LISTAR_POKEMONS, payload: data.result };
@@ -81,7 +82,7 @@ export const setPaginaPokemons = (valor) => {
 };
 
 export const getBuscarPokemon = (nombre) => async (dispatch) => {
-  const dis = await fetch(`http://localhost:3001/pokemons?nombre=${nombre}`)
+  const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons?nombre=${nombre}`)
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: SET_MENSAJES, payload: data.message });
@@ -98,7 +99,7 @@ export const getBuscarPokemon = (nombre) => async (dispatch) => {
 };
 
 export const getBuscarPokemonId = (id) => async (dispatch) => {
-  const dis = await fetch(`http://localhost:3001/pokemons/${id}`)
+  const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons/${id}`)
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: SET_MENSAJES, payload: data.message })
@@ -124,7 +125,7 @@ export const createPokemon =
       //     'Content-Type': 'application/json',
       //   },
       // });
-      const dis = await fetch('http://localhost:3001/pokemons', {
+      const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons', {
         method: 'POST',
         body: JSON.stringify({
           nombre,
