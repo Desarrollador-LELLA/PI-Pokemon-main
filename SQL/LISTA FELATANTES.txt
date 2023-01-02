@@ -14,3 +14,7 @@ DB_HOST=
 DB_PORT=
 DB_NAME=
 PORT=
+
+
+// "dev": "nodemon -L",
+// "deploy": "node index.js",
