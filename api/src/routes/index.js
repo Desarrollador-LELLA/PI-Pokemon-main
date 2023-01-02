@@ -106,5 +106,5 @@ router.put('/pokemons/:id', async (req, res) => {
     res.status(500).json({ message: uno, result: {}, confirmation: false });
   }
 });
-
+//COMENTARIO
 module.exports = router;
