@@ -1,4 +1,4 @@
-//import { pokemons } from '../../lib/dbTester';
+// import { pokemons } from '../../lib/dbTester';
 import {
   LISTAR_POKEMONS,
   SET_FILTRADO_POKEMONS,
@@ -11,17 +11,15 @@ import {
   GET_BUSCAR_POKEMON,
   SET_BUSCAR_POKEMON,
   SET_MENSAJES,
+  GET_BUSCAR_POKEMON_ID,
 } from '../types/index';
 
 export const getListPokemons = () => async (dispatch) => {
-  //ENCONTRAR SOLUCION PORQUE EN DISPOSITIVOS MOVILES CON NAVEGADORES NO RENDERISA LAS CONSULTAS PERO SI EN NAVEGADORES DE WINDOWS. BUSCAR POSIBLES SOLUCIONES
-  //SE REALIZO UN TESTER GENERAL A LA LINEA COMPLETA DESDE QUE SE CONSULTA A LA API LLEGANDO A LA CONCLUCION QUE ESTO OCURRE DESDE CUANDO USAMOS EL FETCH ES
-  //EN ESTE PUNTO EN DONDE TENEMOS QUE REALIZAR PRUEBAS PARA INVESTIGAR.
-
+  // const dis = await pokemons.success
   const dis = await fetch('http://localhost:3001/pokemons')
     .then((res) => res.json())
     .then((data) => {
-      return { type: LISTAR_POKEMONS, payload: data.success };
+      return { type: LISTAR_POKEMONS, payload: data.result };
     })
     .catch((err) => {
       return {
@@ -29,7 +27,6 @@ export const getListPokemons = () => async (dispatch) => {
         payload: err.message,
       };
     });
-  //const dis = { type: LISTAR_POKEMONS, payload: pokemons.success }
   dispatch(dis);
   dispatch({ type: SET_LOADING_POKEMONS, payload: false });
 };
@@ -83,10 +80,11 @@ export const setPaginaPokemons = (valor) => {
   };
 };
 
-export const getBuscarPokemon = (valor) => async (dispatch) => {
-  const dis = await fetch(`http://localhost:3001/pokemons?nombre=${valor}`)
+export const getBuscarPokemon = (nombre) => async (dispatch) => {
+  const dis = await fetch(`http://localhost:3001/pokemons?nombre=${nombre}`)
     .then((res) => res.json())
     .then((data) => {
+      dispatch({ type: SET_MENSAJES, payload: data.message });
       return { type: GET_BUSCAR_POKEMON, payload: data };
     })
     .catch((err) => {
@@ -95,12 +93,68 @@ export const getBuscarPokemon = (valor) => async (dispatch) => {
         payload: err.message,
       };
     });
-  if (dis.payload.error) {
-    dispatch({ type: SET_MENSAJES, payload: dis.payload.error });
-  }
   dispatch(dis);
   dispatch({ type: SET_LOADING_POKEMONS, payload: false });
 };
+
+export const getBuscarPokemonId = (id) => async (dispatch) => {
+  const dis = await fetch(`http://localhost:3001/pokemons/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch({ type: SET_MENSAJES, payload: data.message })
+      return { type: GET_BUSCAR_POKEMON_ID, payload: data };
+    })
+    .catch((err) => {
+      return {
+        type: SET_ERROR_POKEMONS,
+        payload: err.message,
+      };
+    });
+  dispatch(dis);
+  dispatch({ type: SET_LOADING_POKEMONS, payload: false });
+};
+
+export const createPokemon =
+  ({ nombre, altura, peso, vida, defenza, ataque, velocidad, imagen, tipos }) =>
+    async (dispatch) => {
+      // fetch(url, {
+      //   method: 'POST', // or 'PUT'
+      //   body: JSON.stringify(data), // data can be `string` or {object}!
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // });
+      const dis = await fetch('http://localhost:3001/pokemons', {
+        method: 'POST',
+        body: JSON.stringify({
+          nombre,
+          altura,
+          peso,
+          vida,
+          defenza,
+          ataque,
+          velocidad,
+          imagen,
+          tipos,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch({ type: SET_MENSAJES, payload: data.message })
+          return { type: SET_BUSCAR_POKEMON, payload: data };
+        })
+        .catch((err) => {
+          return {
+            type: SET_ERROR_POKEMONS,
+            payload: err.message,
+          };
+        });
+      dispatch(dis);
+      dispatch({ type: SET_LOADING_POKEMONS, payload: false });
+    };
 
 export const setBuscarPokemon = () => {
   return {

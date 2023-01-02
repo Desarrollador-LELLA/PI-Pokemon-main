@@ -7,10 +7,17 @@ import FiltroTipos from '../com/FiltroTipos';
 import Boton from '../com/Boton';
 import iconoAnterior from '../imagenes/ic_anterior.svg';
 import iconoSiguiente from '../imagenes/ic_siguiente.svg';
+import iconoMenu from '../imagenes/ic_menu.svg';
+import iconoX from '../imagenes/ic_x.svg';
 import { filtrarPokemons, paginacion } from '../../lib/libreria';
+import Loading from '../com/Loading';
+import SinResultados from '../com/SinResultados';
+import { setMensajes } from '../../redux/actions/mensajesAction';
+import { useState } from 'react';
 
 const Home = () => {
     const dispatch = useDispatch();
+    const [abierto, setAbierto] = useState(false);
     const { listPokemons, errorPokemons, loadingPokemons, filtrado, pagSelec } = useSelector(state => state.pokemons);
     const listaFiltrada = filtrarPokemons(filtrado, listPokemons);
     const { paginasBar, inicio, fin, cantPaginas } = paginacion(listaFiltrada.length, pagSelec);
@@ -24,41 +31,53 @@ const Home = () => {
     }, [errorPokemons, dispatch]);
 
     useEffect(() => {
+        dispatch(setMensajes('Bienvenido Al Home'));
         dispatch(setLoadingPokemons(true));
         dispatch(getListPokemons());
-        //dispatch(setLoadingPokemons(false));
     }, [dispatch]);
 
     const cambiarPagina = (e) => {
         const nom = e.target.innerText;
-        dispatch(setPaginaPokemons(parseInt(nom)))
-    }
+        dispatch(setPaginaPokemons(parseInt(nom)));
+    };
 
     const anterior = () => {
-        if(pagSelec - 1 < 1) return;
-        dispatch(setPaginaPokemons(pagSelec - 1))
-    }
+        if (pagSelec - 1 < 1) return;
+        dispatch(setPaginaPokemons(pagSelec - 1));
+    };
 
     const siguiente = () => {
-        if(pagSelec + 1 > cantPaginas) return;
-        dispatch(setPaginaPokemons(pagSelec + 1))
-    }
+        if (pagSelec + 1 > cantPaginas) return;
+        dispatch(setPaginaPokemons(pagSelec + 1));
+    };
+
+    const onClickMenuAbrir = () => {
+        if (abierto) {
+            setAbierto(false);
+        } else {
+            setAbierto(true);
+        }
+    };
 
     return (
         <>
             <div className={s.contenedorhome}>
+                <input className={s.clasecheck} type="checkbox" id={s.check} />
+                <div className={s.contenedorboton}>
+                    <label htmlFor={s.check} className="checkbtn" onClick={onClickMenuAbrir}>
+                        <img src={abierto ? iconoX : iconoMenu} alt='Menu' width='30px' />
+                    </label>
+                </div>
                 <div className={s.contenedormenu}>
                     <FiltroTipos />
                 </div>
                 <div className={s.contenedorcards}>
-                    {loadingPokemons ? <div>Cargando</div> :
-                        listaFiltrada.slice(inicio, fin).map(x => {
-                            return <CardPokemon key={x.id} nombre={x.nombre} imagen={x.imagen} tipos={x.tipos} />;
-                        })
-                        // listPokemons.map(x => (
-                        //     //alert(x.nombre)
-                        //     <CardPokemon key={x.id} nombre={x.nombre} imagen={x.imagen} tipos={x.tipos} />
-                        // ))
+                    {loadingPokemons ? <Loading /> :
+                        listaFiltrada.length ?
+                            listaFiltrada.slice(inicio, fin).map(x => {
+                                return <CardPokemon key={x.id} nombre={x.nombre} imagen={x.imagen} tipos={x.tipos} id={x.id} col={s.col} />;
+                            })
+                            : <SinResultados />
                     }
                 </div>
             </div>

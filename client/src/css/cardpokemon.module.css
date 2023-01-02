@@ -4,6 +4,7 @@
     text-align: center;
     border: solid 1px rgb(124, 124, 124);
     height: 200px;
+    cursor: pointer;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -11,10 +12,8 @@
     -o-border-radius: 10px;
 }
 
-.col {
-    float: left;
-    width: calc(11.11% - 10px);
-    margin: 5px;
+.card:hover {
+    border: solid 1px rgb(252, 2, 2)
 }
 
 .tipos {
@@ -34,60 +33,4 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
-}
-
-@media screen and (max-width: 1700px) {
-    .col {
-        width: calc(12.5% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1600px) {
-    .col {
-        width: calc(14.28% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1500px) {
-    .col {
-        width: calc(16.66% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1350px) {
-    .col {
-        width: calc(20% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1150px) {
-    .col {
-        width: calc(25% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .col {
-        width: calc(33.33% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .col {
-        width: calc(50% - 10px);
-        display: block;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .col {
-        width: calc(100% - 10px);
-        display: block;
-    }
 }

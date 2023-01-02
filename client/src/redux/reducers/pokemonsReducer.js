@@ -9,6 +9,7 @@ import {
   SET_PAGINA_POKEMONS,
   GET_BUSCAR_POKEMON,
   SET_BUSCAR_POKEMON,
+  GET_BUSCAR_POKEMON_ID,
 } from '../types/index';
 
 const initialState = {
@@ -84,6 +85,7 @@ const pokemonsReducer = (state = initialState, action) => {
         ...state,
         pagSelec: action.payload,
       };
+    case GET_BUSCAR_POKEMON_ID:
     case SET_BUSCAR_POKEMON:
     case GET_BUSCAR_POKEMON:
       return {

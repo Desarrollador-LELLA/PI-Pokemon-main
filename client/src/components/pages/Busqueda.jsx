@@ -2,16 +2,15 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { setBuscarPokemon, setErrorPokemons, getBuscarPokemon/*, loadingPokemons*/ } from '../../redux/actions/pokemonsAction';
-import { setMensajes } from '../../redux/actions/mensajesAction';
+import { setBuscarPokemon, setErrorPokemons, getBuscarPokemon, setLoadingPokemons } from '../../redux/actions/pokemonsAction';
 import CardPokemon from '../com/CardPokemon';
 import s from '../../css/busqueda.module.css';
 import SinResultados from '../com/SinResultados';
+import Loading from '../com/Loading';
 
 const Busqueda = () => {
 
-    const { buscarPokermon, errorPokemons/*, loadingPokemons*/ } = useSelector(state => state.pokemons);
-    const { mensaje } = useSelector(state => state.mensajes);
+    const { buscarPokermon, errorPokemons, loadingPokemons } = useSelector(state => state.pokemons);
     const { nombre } = useParams();
     const dispatch = useDispatch();
 
@@ -19,31 +18,30 @@ const Busqueda = () => {
         return () => {
             if (errorPokemons) {
                 dispatch(setErrorPokemons(''));
-            }
-            if (buscarPokermon) {
-                dispatch(setBuscarPokemon());
-            }
+            }            
         };
     }, [errorPokemons, dispatch]);
 
     useEffect(() => {
-        return () => {
-            if (mensaje) {
-                dispatch(setMensajes(''));
-            }
-        };
-    }, [mensaje, nombre, dispatch]);
-
-    useEffect(() => {
+        dispatch(setLoadingPokemons(true));
         dispatch(getBuscarPokemon(nombre));
+        return () =>{
+            if (buscarPokermon) {
+                dispatch(setBuscarPokemon());
+            }
+        }
     }, [dispatch, nombre]);
 
     return (
         <div className={s.contenedorcards}>
             {
-                buscarPokermon.success ?
-                    <CardPokemon nombre={buscarPokermon.success.nombre} imagen={buscarPokermon.success.imagen} tipos={buscarPokermon.success.tipos} />
-                    : <SinResultados />
+                loadingPokemons ?
+                    <Loading /> :
+                    buscarPokermon.confirmation ?
+                    <div className={s.contenedorcentro}>
+                        <CardPokemon nombre={buscarPokermon.result.nombre} imagen={buscarPokermon.result.imagen} tipos={buscarPokermon.result.tipos} id={buscarPokermon.result.id} col={s.creadocards} />
+                    </div>
+                        : <SinResultados />
             }
         </div>
     );

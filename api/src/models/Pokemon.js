@@ -27,8 +27,8 @@ module.exports = (sequelize) => {
         field: 'ATAQUE_POKE',
         type: DataTypes.INTEGER,
       },
-      defensa: {
-        field: 'DEFENSA_POKE',
+      defenza: {
+        field: 'DEFENZA_POKE',
         type: DataTypes.INTEGER,
       },
       velocidad: {

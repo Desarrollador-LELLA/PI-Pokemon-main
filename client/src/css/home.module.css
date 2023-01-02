@@ -1,15 +1,28 @@
 .contenedorhome {
+  /* position: relative; */
   height: calc(100% - 50px);
   min-height: 210px;
   display: flex;
 }
 
 .contenedormenu {
+  /* position: absolute; */
+  /* left: 0px; */
   overflow-y: scroll;
   background: rgb(201, 201, 201);
   width: 170px;
   height: 100%;
   min-height: 210px;
+}
+
+.contenedorboton {
+  display: none;
+  width: 50px;
+  background: rgb(201, 201, 201);
+}
+
+.clasecheck {
+  display: none;
 }
 
 .contenedorcards {
@@ -47,8 +60,71 @@
   width: 100%;
 }
 
-.contenedorcards::after {
-  content: "";
-  display: table;
-  clear: both;
+.col {
+  float: left;
+  width: calc(16.66% - 10px);
+  margin: 5px;
+}
+
+@media screen and (max-width: 1350px) {
+  .col {
+    width: calc(20% - 10px);
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .col {
+    width: calc(25% - 10px);
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .col {
+    width: calc(33.33% - 10px);
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .col {
+    width: calc(50% - 10px);
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .col {
+    width: calc(100% - 10px);
+    display: block;
+  }
+}
+
+@media screen and (max-width: 470px) {
+
+  .contenedorcards {
+    /* width: calc(100% - 170px); */
+    width: 100%;
+  }
+
+  .contenedorhome {
+    position: relative;
+  }
+
+  .contenedorboton {
+    display: block;
+  }
+
+  .contenedormenu {
+    position: absolute;
+    display: none;
+    left: 0px;
+  }
+  
+  #check:checked ~ .contenedormenu{
+    display: block;
+    left: 42px;
+  }
+
 }

@@ -65,20 +65,20 @@ export const filtrarPokemons = (
     nuevaLista.sort((a, b) => b.ataque - a.ataque);
   } else if (opAZ) {
     nuevaLista.sort((a, b) => {
-      if (b.nombre > a.nombre) {
+      if (b.nombre.toLowerCase() > a.nombre.toLowerCase()) {
         return -1;
       }
-      if (b.nombre < a.nombre) {
+      if (b.nombre.toLowerCase() < a.nombre.toLowerCase()) {
         return 1;
       }
       return 0; //Array.prototype.sort() expects a value to be returned at the end of arrow function
     });
   } else if (opZA) {
     nuevaLista.sort((a, b) => {
-      if (a.nombre > b.nombre) {
+      if (a.nombre.toLowerCase() > b.nombre.toLowerCase()) {
         return -1;
       }
-      if (a.nombre < b.nombre) {
+      if (a.nombre.toLowerCase() < b.nombre.toLowerCase()) {
         return 1;
       }
       return 0; //Array.prototype.sort() expects a value to be returned at the end of arrow function
@@ -124,3 +124,74 @@ export const paginacion = (cantItems, paginaActual) => {
   const inicio = fin - 12;
   return { paginasBar, inicio, fin, cantPaginas };
 };
+
+
+// export const filtradoLibreria = ({  origen, tipo, alfabeticamente }, listPokemon ) => {
+
+//   let listPokemonCopy = [];
+
+//   if(origen === "ALL")
+//   {
+//       listPokemonCopy = listPokemon.slice();
+//   }
+//   else
+//   {
+//       if(origen === "CREATED")
+//       {
+//           listPokemonCopy = listPokemon.filter( (e) => e.createInDB );
+//       }
+//       else
+//       {
+//           listPokemonCopy = listPokemon.filter( (e) => !e.createInDB );
+//       }
+//   }
+
+//   if(tipo !== "ALL")
+//   {
+//       listPokemonCopy = listPokemonCopy.filter( (e) => {
+//           return e.types.includes(tipo);
+//       });
+//   }
+
+//   if(alfabeticamente !== "ALL")
+//   {
+//       if(alfabeticamente === "A-Z")
+//       {
+//           listPokemonCopy.sort( (a,b) => {
+//               if(b.name.toLowerCase() > a.name.toLowerCase())
+//               {
+//                   return -1;
+//               }
+//               if(b.name < a.name)
+//               {
+//                   return 1;
+//               }
+//               return 0;
+//           })            
+//       }
+//       else if(alfabeticamente === "Z-A")
+//       {
+//           listPokemonCopy.sort( (a,b) => {
+//               if(a.name.toLowerCase() > b.name.toLowerCase())
+//               {
+//                   return -1;
+//               }
+//               if(a.name < b.name)
+//               {
+//                   return 1;
+//               }
+//               return 0;
+//           })
+//       }
+//       else if(alfabeticamente === "ASC")
+//       {
+//           listPokemonCopy.sort((a, b) => b.attack - a.attack);
+//       }
+//       else if(alfabeticamente === "DESC")
+//       {
+//           listPokemonCopy.sort((a, b) => a.attack - b.attack);
+//       }
+//   }
+
+//   return listPokemonCopy;
+// }

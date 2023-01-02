@@ -1,7 +1,7 @@
 import { SET_MENSAJES } from "../types/index";
 
 const initialState = {
-    mensaje: '',
+    mensaje: "",
 }
 
 const mensajesReducer = (state = initialState, action) => {

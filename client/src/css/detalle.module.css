@@ -1,0 +1,179 @@
+.colcero {
+    float: left;
+    width: calc(100% - 10px);
+    margin: 5px 5px 0 5px;
+    font-size: 35px;
+    font-weight: bolder;
+    color: bisque;
+}
+
+.coluno {
+    float: left;
+    width: 332.5px;
+    height: calc(100% - 62px);
+    margin: 5px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: bisque;
+}
+
+.colpadre {
+    float: left;
+    width: calc(100% - 352.5px);
+    height: calc(100% - 62px);
+    margin: 5px;
+}
+
+.coldos {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.estadisticas {
+    color: rgb(173, 255, 241);
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.altupeso {
+    display: flex;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.altupeso div {
+    width: 50%;
+    background: rgb(75, 116, 109);
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.grafico {
+    border: 2px solid rgb(173, 255, 241);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.grafico div {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: start;
+}
+
+.barra {
+    display: flex;
+    padding: 5px;
+}
+
+.barranombre {
+    color: rgb(173, 255, 241);
+    width: 110px;
+    padding: 10px;
+}
+
+.barrastat {
+    border: solid 2px rgb(173, 255, 241);
+    color: rgb(0, 0, 0);
+    background: rgb(75, 116, 109);
+    width: calc(100% - 110px);
+}
+
+.nivel {
+    background: rgb(173, 255, 241);
+    width: 0;
+    height: 100%;
+}
+
+.nivel div {
+    width: 100%;
+    padding: 10px;
+}
+
+.coltres {
+    float: left;
+    display: inline;
+    width: 30%;
+    height: 100%;
+}
+
+.tipos {
+    color: rgb(173, 255, 241);
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.tiposoption {
+    /* display: inline; */
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    height: calc(100% - 59px);
+}
+
+.tiposoption div {
+    width: calc(100% - 40px);
+    background: rgb(75, 116, 109);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.imagen {
+    width: 94%;
+    height: auto;
+}
+
+@media screen and (max-width: 1050px) {
+
+    .coldos {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .coltres {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    .colpadre {
+        width: calc(100% - 10px);
+        display: block;
+    }
+
+    .coluno {
+        height: auto;
+        float: none;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .coluno {
+        width: 100%;
+    }
+
+}

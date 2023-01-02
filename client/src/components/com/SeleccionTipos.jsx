@@ -26,31 +26,31 @@ const SeleccionTipos = () => {
 
     const onClickDivTodos = (e) => {
         if (filtrado.optTodos) return;
-        dispatch(setPaginaPokemons(1))
+        dispatch(setPaginaPokemons(1));
         dispatch(setFiltradoPokemons({ fptTipos: [], optTodos: true, optSeleUni: false, optSeleMult: false, optSeleMultEx: false }));
     };
 
     const onClickDivSeleccionUnica = (e) => {
         if (filtrado.optSeleUni) return;
-        dispatch(setPaginaPokemons(1))
+        dispatch(setPaginaPokemons(1));
         dispatch(setFiltradoPokemons({ fptTipos: [], optTodos: false, optSeleUni: true, optSeleMult: false, optSeleMultEx: false }));
     };
 
     const onClickDivSeleccionMultiple = (e) => {
         if (filtrado.optSeleMult) return;
-        dispatch(setPaginaPokemons(1))
+        dispatch(setPaginaPokemons(1));
         dispatch(setFiltradoPokemons({ fptTipos: [], optTodos: false, optSeleUni: false, optSeleMult: true, optSeleMultEx: false }));
     };
 
     const onClickDivSeleccionMultipleExact = (e) => {
         if (filtrado.optSeleMultEx) return;
-        dispatch(setPaginaPokemons(1))
+        dispatch(setPaginaPokemons(1));
         dispatch(setFiltradoPokemons({ fptTipos: [], optTodos: false, optSeleUni: false, optSeleMult: false, optSeleMultEx: true }));
     };
 
     const onClickDivTipos = (e) => {
         const nom = e.target.innerText;
-        dispatch(setPaginaPokemons(1))
+        dispatch(setPaginaPokemons(1));
         if (filtrado.optSeleUni) {
             if (!filtrado.fptTipos.includes(nom)) {
                 dispatch(unicaTipoFiltradoPokemons(nom));
@@ -82,7 +82,7 @@ const SeleccionTipos = () => {
                 <div>
                     <CheckBox texto={'Seleccion Multiple Exacta'} gatillo={filtrado.optSeleMultEx} estado={true} propsDivCont={{ onClick: onClickDivSeleccionMultipleExact }} />
                 </div>
-                {loadingTipos ? <div>Cargando</div> :
+                {loadingTipos ? <div>Cargando...</div> :
                     listTipos.map(x => <div className={s.contenedorcheck} key={x.id} >
                         <CheckBox texto={x.nombre} gatillo={filtrado.fptTipos.includes(x.nombre)} estado={!filtrado.optTodos} propsDivCont={{ onClick: onClickDivTipos }} />
                     </div>)

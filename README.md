@@ -1,3 +1,12 @@
+# Informacion
+
+## Para API en Desarrollo
+- npm run dev 
+
+## Para Cliente en Desarrollo
+- npm start
+
+# ---------------------------
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
 # Individual Project - Henry Pokemon

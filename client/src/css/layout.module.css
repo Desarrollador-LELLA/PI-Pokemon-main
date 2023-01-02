@@ -1,9 +1,11 @@
 .contenedor {
     background: #DC0A2D;
-    margin: 10px;
+    /* margin: 10px; */
+    margin: 10px auto;
     height: calc(100% - 20px);
     min-width: 240px;
     min-height: 622px;
+    max-width: 1400px;
     box-shadow: 0 0 20px #0007, 1px 0 20px 6px #0008 inset;
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -13,8 +15,15 @@
 }
 
 .header {
+    /* position: relative; */
     display: flex;
     width: 100%;
+}
+
+.logo {
+    /* position: absolute;
+    right: 90%; */
+    margin: 6px 0 0 15px;
 }
 
 .bordecirculo {
@@ -132,6 +141,9 @@
 }
 
 .pantallamensajes {
+    display: flex;
+    justify-content: center;
+
     margin: 15px 10px 0px 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(4, 218, 4);
@@ -149,7 +161,8 @@
 }
 
 .pantallamensajes div {
-    margin: auto 0;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .contenedorhijo {
@@ -195,7 +208,15 @@
     margin: 10px;
 }
 
-a {
+.contboton {
+    margin: 0 10px 0 0;
+}
+
+.contbotonoff {
+    margin: 0 0 0 auto;
+}
+
+/* a {
     text-decoration: none;
     font-size: 18px;
     font-style: oblique;
@@ -252,6 +273,12 @@ a {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+} */
+
+@media screen and (max-width: 1420px) {
+    .contenedor {
+        margin: 10px;
+    }
 }
 
 /* #root {

@@ -8,7 +8,7 @@ export const getListTipos = () => async (dispatch) => {
   await fetch('http://localhost:3001/tipos')
     .then((res) => res.json())
     .then((data) => {
-      dispatch({ type: LISTAR_TIPOS, payload: data.success });
+      dispatch({ type: LISTAR_TIPOS, payload: data.result });
     })
     .catch((err) => {
       dispatch({
