@@ -1,0 +1,18 @@
+.contenedor {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedorspan {
+    float: left;
+    width: 100%;
+    padding-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contenedor button {
+    margin: 0 auto;
+}

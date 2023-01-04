@@ -4,6 +4,7 @@ import {
   SET_LOADING_TIPOS,
 } from '../types/index';
 
+//https://pi-pokemon-main-production-82f7.up.railway.app/tipos
 //http://localhost:3001/tipos
 
 export const getListTipos = () => async (dispatch) => {

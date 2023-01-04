@@ -295,6 +295,9 @@ module.exports = {
         const del = await Pokemons.destroy({
           where: { id: id, },
         });
+        if(del === 0){
+          throw new Error(`El ID ${id}, NO existe en la base de datos`);
+        }
         return 'Pokemon Eliminado Correctamente';
       } else {
         throw new Error('El id No tiene el formato correcto');

@@ -16,6 +16,7 @@ import {
 
 export const getListPokemons = () => async (dispatch) => {
   // const dis = await pokemons.success
+  //https://pi-pokemon-main-production-82f7.up.railway.app/pokemons
   //http://localhost:3001/pokemons
   const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons')
     .then((res) => res.json())
@@ -102,7 +103,7 @@ export const getBuscarPokemonId = (id) => async (dispatch) => {
   const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons/${id}`)
     .then((res) => res.json())
     .then((data) => {
-      dispatch({ type: SET_MENSAJES, payload: data.message })
+      dispatch({ type: SET_MENSAJES, payload: data.message });
       return { type: GET_BUSCAR_POKEMON_ID, payload: data };
     })
     .catch((err) => {
@@ -115,47 +116,36 @@ export const getBuscarPokemonId = (id) => async (dispatch) => {
   dispatch({ type: SET_LOADING_POKEMONS, payload: false });
 };
 
-export const createPokemon =
-  ({ nombre, altura, peso, vida, defenza, ataque, velocidad, imagen, tipos }) =>
-    async (dispatch) => {
-      // fetch(url, {
-      //   method: 'POST', // or 'PUT'
-      //   body: JSON.stringify(data), // data can be `string` or {object}!
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      // });
-      const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons', {
-        method: 'POST',
-        body: JSON.stringify({
-          nombre,
-          altura,
-          peso,
-          vida,
-          defenza,
-          ataque,
-          velocidad,
-          imagen,
-          tipos,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+export const createPokemon = ({ nombre, altura, peso, vida, defenza, ataque, velocidad, imagen, tipos }) =>
+  async (dispatch) => {
+    // fetch(url, {
+    //   method: 'POST', // or 'PUT'
+    //   body: JSON.stringify(data), // data can be `string` or {object}!
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+    const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons', {
+      method: 'POST',
+      body: JSON.stringify({ nombre, altura, peso, vida, defenza, ataque, velocidad, imagen, tipos, }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({ type: SET_MENSAJES, payload: data.message });
+        return { type: SET_BUSCAR_POKEMON, payload: data };
       })
-        .then((res) => res.json())
-        .then((data) => {
-          dispatch({ type: SET_MENSAJES, payload: data.message })
-          return { type: SET_BUSCAR_POKEMON, payload: data };
-        })
-        .catch((err) => {
-          return {
-            type: SET_ERROR_POKEMONS,
-            payload: err.message,
-          };
-        });
-      dispatch(dis);
-      dispatch({ type: SET_LOADING_POKEMONS, payload: false });
-    };
+      .catch((err) => {
+        return {
+          type: SET_ERROR_POKEMONS,
+          payload: err.message,
+        };
+      });
+    dispatch(dis);
+    dispatch({ type: SET_LOADING_POKEMONS, payload: false });
+  };
 
 export const setBuscarPokemon = () => {
   return {
@@ -163,3 +153,24 @@ export const setBuscarPokemon = () => {
     payload: {},
   };
 };
+
+export const deletePokemon = (id) =>
+  async (dispatch) => {
+    const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons/${id}`, { method: 'DELETE' })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({ type: SET_MENSAJES, payload: data.message });
+        if(data.confirmation){
+          dispatch({ type: LISTAR_POKEMONS, payload: data.result })
+        }
+        return { type: SET_BUSCAR_POKEMON, payload: data };
+      })
+      .catch((err) => {
+        return {
+          type: SET_ERROR_POKEMONS,
+          payload: err.message,
+        };
+      });
+    dispatch(dis);
+    dispatch({ type: SET_LOADING_POKEMONS, payload: false });
+  };

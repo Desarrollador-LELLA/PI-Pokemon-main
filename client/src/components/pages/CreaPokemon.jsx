@@ -189,7 +189,7 @@ const CreaPokemon = () => {
             {
                 buscarPokermon.confirmation ?
                     <div className={s.contenedorcreado}>
-                        <CardPokemon nombre={buscarPokermon.result.nombre} imagen={buscarPokermon.result.imagen} tipos={buscarPokermon.result.tipos} id={buscarPokermon.result.id} col={s.creadocards} />
+                        <CardPokemon nombre={buscarPokermon.result.nombre} imagen={buscarPokermon.result.imagen} tipos={buscarPokermon.result.tipos} id={buscarPokermon.result.id} col={s.creadocards} act={true} />
                     </div>
                     :
                     <div className={s.contenedorcrear}>

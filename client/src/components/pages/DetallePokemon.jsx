@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { setMensajes } from '../../redux/actions/mensajesAction';
 import { getBuscarPokemonId, setErrorPokemons, setLoadingPokemons, setBuscarPokemon } from '../../redux/actions/pokemonsAction';
 import Detalle from '../com/Detalle';
 import Loading from '../com/Loading';

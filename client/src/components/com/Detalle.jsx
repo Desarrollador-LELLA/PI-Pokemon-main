@@ -74,7 +74,7 @@ const Detalle = ({ detalle }) => {
                     <div className={s.tipos}>Tipos</div>
                     <div className={s.tiposoption}>
                         {
-                            tipos.map(x => {
+                            tipos?.map(x => {
                                 return <div key={x}>{x}</div>;
                             })
                         }

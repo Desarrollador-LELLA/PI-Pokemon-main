@@ -89,7 +89,10 @@ router.delete("/pokemons/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const ret = await controlador.deletePokemon(id);
-    res.status(200).json({ message: ret, result: {}, confirmation: true });
+    const dbList = await controlador.getListDb();
+    const apiList = await controlador.getListApi();
+    const sumando = await dbList.concat(apiList);
+    res.status(200).json({ message: ret, result: sumando, confirmation: true });
   } catch (err) {
     res.status(500).json({ message: err.message, result: {}, confirmation: false });
   }
