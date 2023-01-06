@@ -8,7 +8,9 @@ const Detalle = ({ detalle }) => {
     const metodo = (valor, div) => {
         const ancho = (valor / 280) * 100;
         if (div) {
-            div.setAttribute("style", `width: ${ancho.toString()}%; background: rgb(173, 255, 241); height: 100%;`);
+            // console.log(div.style.getPropertyValue("--valor-nivel"));
+            div.style.setProperty("--valor-nivel", `${ancho}%`);
+            // div.setAttribute("style", `width: ${ancho.toString()}%; background: rgb(173, 255, 241); height: 100%;`);
         }
     };
 

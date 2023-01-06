@@ -1,3 +1,5 @@
+:root { --valor-nivel: 0; }
+
 .colcero {
     float: left;
     width: calc(100% - 10px);
@@ -93,7 +95,7 @@
 
 .nivel {
     background: rgb(173, 255, 241);
-    width: 0;
+    width: var(--valor-nivel);
     height: 100%;
 }
 
