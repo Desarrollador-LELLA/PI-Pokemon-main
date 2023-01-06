@@ -23,6 +23,10 @@ const Detalle = ({ detalle }) => {
     //     metodo(velocidad, document.getElementById('velocidad'));
     // };
 
+    const stulo = {
+        width: ((vida / 280) * 100).toString() + '%'
+    }
+
     return (
         <div>
             <div className={s.colcero}>
@@ -43,9 +47,9 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Vida</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='vida' >
+                                <div className={s.nivel} id='vida' style={stulo} >
                                     {console.log(s.nivel.toString())}
-                                    {metodo(vida, document.getElementById('vida'))}
+                                    {/* {metodo(vida, document.getElementById('vida'))} */}
                                     <div>{vida}</div>
                                 </div>
                             </div>
