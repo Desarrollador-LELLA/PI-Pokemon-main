@@ -14,11 +14,13 @@ import {
   GET_BUSCAR_POKEMON_ID,
 } from '../types/index';
 
+const urlA = 'https://pi-pokemon-main-production-82f7.up.railway.app/pokemons';
+
 export const getListPokemons = () => async (dispatch) => {
   // const dis = await pokemons.success
   //https://pi-pokemon-main-production-82f7.up.railway.app/pokemons
   //http://localhost:3001/pokemons
-  const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons')
+  const dis = await fetch(urlA)
     .then((res) => res.json())
     .then((data) => {
       return { type: LISTAR_POKEMONS, payload: data.result };
@@ -83,7 +85,7 @@ export const setPaginaPokemons = (valor) => {
 };
 
 export const getBuscarPokemon = (nombre) => async (dispatch) => {
-  const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons?nombre=${nombre}`)
+  const dis = await fetch(`${urlA}?nombre=${nombre}`)
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: SET_MENSAJES, payload: data.message });
@@ -100,15 +102,15 @@ export const getBuscarPokemon = (nombre) => async (dispatch) => {
 };
 
 export const getBuscarPokemonId = (id) => async (dispatch) => {
-  const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons/${id}`)
+  const dis = await fetch(`${urlA}/${id}`)
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: SET_MENSAJES, payload: data.message });
       return { type: GET_BUSCAR_POKEMON_ID, payload: data };
-    })
+  })
     .catch((err) => {
-      return {
-        type: SET_ERROR_POKEMONS,
+    return {
+      type: SET_ERROR_POKEMONS,
         payload: err.message,
       };
     });
@@ -125,7 +127,7 @@ export const createPokemon = ({ nombre, altura, peso, vida, defenza, ataque, vel
     //     'Content-Type': 'application/json',
     //   },
     // });
-    const dis = await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/pokemons', {
+    const dis = await fetch(urlA, {
       method: 'POST',
       body: JSON.stringify({ nombre, altura, peso, vida, defenza, ataque, velocidad, imagen, tipos, }),
       headers: {
@@ -156,7 +158,7 @@ export const setBuscarPokemon = () => {
 
 export const deletePokemon = (id) =>
   async (dispatch) => {
-    const dis = await fetch(`https://pi-pokemon-main-production-82f7.up.railway.app/pokemons/${id}`, { method: 'DELETE' })
+    const dis = await fetch(`${urlA}/${id}`, { method: 'DELETE' })
       .then((res) => res.json())
       .then((data) => {
         dispatch({ type: SET_MENSAJES, payload: data.message });

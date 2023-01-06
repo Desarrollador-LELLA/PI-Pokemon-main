@@ -9,6 +9,8 @@ import icHome from '../imagenes/ic_home.svg';
 import icAdd from '../imagenes/ic_add.svg';
 import icLanding from '../imagenes/ic_landing.svg';
 import { useState } from 'react';
+import icGithub from '../imagenes/github_mark.svg';
+import icLinked from '../imagenes/linked_icon.svg';
 
 const initialState = {
     home: { name: 'Home', url: '/pokemons', activo: true },
@@ -23,12 +25,12 @@ const Layout = () => {
     const { mensaje } = useSelector(state => state.mensajes);
 
     const nav = (e) => {
-        setNavegacion({ ...navegacion, home: { ...navegacion.home, activo: true }, create: { ...navegacion.create, activo: false } })
+        setNavegacion({ ...navegacion, home: { ...navegacion.home, activo: true }, create: { ...navegacion.create, activo: false } });
         navegar(navegacion.home.url);
     };
 
     const navc = (e) => {
-        setNavegacion({ ...navegacion, home: { ...navegacion.home, activo: false }, create: { ...navegacion.create, activo: true } })
+        setNavegacion({ ...navegacion, home: { ...navegacion.home, activo: false }, create: { ...navegacion.create, activo: true } });
         navegar(navegacion.create.url);
     };
 
@@ -73,6 +75,14 @@ const Layout = () => {
                     </div>
                     <div className={s.contbotonoff}>
                         <Boton type='button' icono={icLanding} alt='Apagar' onClick={navd} />
+                    </div>
+                    <div className={s.redes}>
+                        <a href="https://github.com/Desarrollador-LELLA/PI-Pokemon-main" target="_blank">
+                            <img src={icGithub} alt='GitHub' width='40px' height='40px' />
+                        </a>
+                        <a href="https://www.linkedin.com/in/luisestebanllancamilaguilera/" target="_blank">
+                            <img src={icLinked} alt='Linked' width='40px' height='40px' />
+                        </a>
                     </div>
                 </div>
             </div>

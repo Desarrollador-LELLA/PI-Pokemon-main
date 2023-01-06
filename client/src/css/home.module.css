@@ -1,13 +1,10 @@
 .contenedorhome {
-  /* position: relative; */
   height: calc(100% - 50px);
   min-height: 210px;
   display: flex;
 }
 
 .contenedormenu {
-  /* position: absolute; */
-  /* left: 0px; */
   overflow-y: scroll;
   background: rgb(201, 201, 201);
   width: 170px;
@@ -123,6 +120,7 @@
   }
   
   #check:checked ~ .contenedormenu{
+    z-index: 1;
     display: block;
     left: 42px;
   }

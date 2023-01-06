@@ -6,21 +6,21 @@ const Detalle = ({ detalle }) => {
     const { id, nombre, vida, ataque, defenza, velocidad, altura, peso, imagen, tipos } = detalle;
 
     const metodo = (valor, div) => {
-        const ancho = (valor / 280) * 100
-        if(div){
+        const ancho = (valor / 280) * 100;
+        if (div) {
             div.setAttribute("style", `width: ${ancho.toString()}%;`);
         }
-    }
+    };
 
-    const nivelBarra = () => {
-        metodo(vida, document.getElementById('vida'))
-        metodo(ataque, document.getElementById('ataque'))
-        metodo(defenza, document.getElementById('defenza'))
-        metodo(velocidad, document.getElementById('velocidad'))
-    }
+    // const nivelBarra = () => {
+    //     metodo(vida, document.getElementById('vida'));
+    //     metodo(ataque, document.getElementById('ataque'));
+    //     metodo(defenza, document.getElementById('defenza'));
+    //     metodo(velocidad, document.getElementById('velocidad'));
+    // };
 
     return (
-        <>
+        <div>
             <div className={s.colcero}>
                 <div>{nombre}</div>
             </div>
@@ -39,7 +39,8 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Vida</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='vida'>
+                                <div className={s.nivel} id='vida' >
+                                    {metodo(vida, document.getElementById('vida'))}
                                     <div>{vida}</div>
                                 </div>
                             </div>
@@ -48,6 +49,7 @@ const Detalle = ({ detalle }) => {
                             <div className={s.barranombre}>Ataque</div>
                             <div className={s.barrastat}>
                                 <div className={s.nivel} id='ataque'>
+                                {metodo(ataque, document.getElementById('ataque'))}
                                     <div>{ataque}</div>
                                 </div>
                             </div>
@@ -56,6 +58,7 @@ const Detalle = ({ detalle }) => {
                             <div className={s.barranombre}>Defenza</div>
                             <div className={s.barrastat}>
                                 <div className={s.nivel} id='defenza'>
+                                    {metodo(defenza, document.getElementById('defenza'))}
                                     <div>{defenza}</div>
                                 </div>
                             </div>
@@ -64,6 +67,7 @@ const Detalle = ({ detalle }) => {
                             <div className={s.barranombre}>Velocidad</div>
                             <div className={s.barrastat}>
                                 <div className={s.nivel} id='velocidad'>
+                                    {metodo(velocidad, document.getElementById('velocidad'))}
                                     <div>{velocidad}</div>
                                 </div>
                             </div>
@@ -81,8 +85,7 @@ const Detalle = ({ detalle }) => {
                     </div>
                 </div>
             </div>
-            {nivelBarra()}
-        </>
+        </div>
     );
 };
 
