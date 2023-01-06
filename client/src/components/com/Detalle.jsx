@@ -5,26 +5,20 @@ const Detalle = ({ detalle }) => {
 
     const { id, nombre, vida, ataque, defenza, velocidad, altura, peso, imagen, tipos } = detalle;
 
-    const metodo = (valor, div) => {
-        console.log(div)
-        const ancho = (valor / 280) * 100;
-        if (div) {
-            // console.log(div.style.getPropertyValue("--valor-nivel"));
-            div.style.setProperty("--valor-nivel", `${ancho}%`);
-            // div.style.setProperty("@value valor:", `${ancho}%`);
-            // div.setAttribute("style", `width: ${ancho.toString()}%; background: rgb(173, 255, 241); height: 100%;`);
-        }
-    };
-
-    // const nivelBarra = () => {
-    //     metodo(vida, document.getElementById('vida'));
-    //     metodo(ataque, document.getElementById('ataque'));
-    //     metodo(defenza, document.getElementById('defenza'));
-    //     metodo(velocidad, document.getElementById('velocidad'));
-    // };
-
-    const stulo = {
+    const sVida = {
         width: ((vida / 280) * 100).toString() + '%'
+    }
+
+    const sAtaque = {
+        width: ((ataque / 280) * 100).toString() + '%'
+    }
+
+    const sDefensa = {
+        width: ((defenza / 280) * 100).toString() + '%'
+    }
+
+    const sVelocidad = {
+        width: ((velocidad / 280) * 100).toString() + '%'
     }
 
     return (
@@ -47,9 +41,7 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Vida</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='vida' style={stulo} >
-                                    {console.log(s.nivel.toString())}
-                                    {/* {metodo(vida, document.getElementById('vida'))} */}
+                                <div className={s.nivel} style={sVida} >
                                     <div>{vida}</div>
                                 </div>
                             </div>
@@ -57,8 +49,7 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Ataque</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='ataque'>
-                                {metodo(ataque, document.getElementById('ataque'))}
+                                <div className={s.nivel} style={sAtaque} >
                                     <div>{ataque}</div>
                                 </div>
                             </div>
@@ -66,8 +57,7 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Defenza</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='defenza'>
-                                    {metodo(defenza, document.getElementById('defenza'))}
+                                <div className={s.nivel} style={sDefensa} >
                                     <div>{defenza}</div>
                                 </div>
                             </div>
@@ -75,8 +65,7 @@ const Detalle = ({ detalle }) => {
                         <div className={s.barra}>
                             <div className={s.barranombre}>Velocidad</div>
                             <div className={s.barrastat}>
-                                <div className={s.nivel} id='velocidad'>
-                                    {metodo(velocidad, document.getElementById('velocidad'))}
+                                <div className={s.nivel} style={sVelocidad} >
                                     <div>{velocidad}</div>
                                 </div>
                             </div>
