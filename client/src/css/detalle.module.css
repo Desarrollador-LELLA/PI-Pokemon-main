@@ -1,4 +1,5 @@
 :root { --valor-nivel: 0; }
+@value valor: var(--valor-nivel); 
 
 .colcero {
     float: left;
@@ -95,7 +96,7 @@
 
 .nivel {
     background: rgb(173, 255, 241);
-    width: var(--valor-nivel);
+    width: valor;
     height: 100%;
 }
 
