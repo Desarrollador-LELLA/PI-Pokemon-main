@@ -10,22 +10,7 @@ const ValidaUUID4V = ({ id }) => {
   }
 };
 
-export const filtrarPokemons = (
-  {
-    oddApi,
-    oddCreados,
-    optSeleUni,
-    optSeleMultEx,
-    optSeleMult,
-    fptTipos,
-    opDesc,
-    opAsce,
-    opAZ,
-    opZA,
-    opSinOrden,
-  },
-  lista
-) => {
+export const filtrarPokemons = ({ oddApi, oddCreados, optSeleUni, optSeleMultEx, optSeleMult, fptTipos, opDesc, opAsce, opAZ, opZA, opSinOrden, }, lista) => {
   let nuevaLista = [];
   if (oddApi && oddCreados) {
     nuevaLista = lista.slice();
@@ -167,7 +152,7 @@ export const paginacion = (cantItems, paginaActual) => {
 //                   return 1;
 //               }
 //               return 0;
-//           })            
+//           })
 //       }
 //       else if(alfabeticamente === "Z-A")
 //       {

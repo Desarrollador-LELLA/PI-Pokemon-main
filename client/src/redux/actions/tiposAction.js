@@ -8,7 +8,7 @@ import {
 //http://localhost:3001/tipos
 
 export const getListTipos = () => async (dispatch) => {
-  await fetch('https://pi-pokemon-main-production-82f7.up.railway.app/tipos')
+  await fetch('http://localhost:3001/pokemons')
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: LISTAR_TIPOS, payload: data.result });

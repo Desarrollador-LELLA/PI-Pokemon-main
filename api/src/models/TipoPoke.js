@@ -5,7 +5,9 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
     'tipopoke',
-    {},
+    {
+      
+    },
     {
       tableName: 'TB_TIPO_POKE',
       timestamps: false,

@@ -14,7 +14,7 @@ import {
   GET_BUSCAR_POKEMON_ID,
 } from '../types/index';
 
-const urlA = 'https://pi-pokemon-main-production-82f7.up.railway.app/pokemons';
+const urlA = 'http://localhost:3001/pokemons';
 
 export const getListPokemons = () => async (dispatch) => {
   // const dis = await pokemons.success
