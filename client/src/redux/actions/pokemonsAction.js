@@ -14,11 +14,12 @@ import {
   GET_BUSCAR_POKEMON_ID,
 } from '../types/index';
 
-const urlA = 'http://localhost:3001/pokemons';
+const urlA = 'https://pi-pokemon-main-production-a03f.up.railway.app/pokemons';
 
 export const getListPokemons = () => async (dispatch) => {
   // const dis = await pokemons.success
-  //https://pi-pokemon-main-production-82f7.up.railway.app/pokemons
+  //https://pi-pokemon-main-production-82f7.up.railway.app/pokemons ANTIGUA
+  //https://pi-pokemon-main-production-a03f.up.railway.app/pokemons NUEVA
   //http://localhost:3001/pokemons
   const dis = await fetch(urlA)
     .then((res) => res.json())

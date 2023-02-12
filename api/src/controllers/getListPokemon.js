@@ -157,9 +157,9 @@ module.exports = {
       const segundosVeintePoke = await queridoFetchTraedmeEsto(
         primerosVeintePoke.next
       );
-      const tercerosVeintePoke = await queridoFetchTraedmeEsto(
-        segundosVeintePoke.next
-      );
+      // const tercerosVeintePoke = await queridoFetchTraedmeEsto(
+      //   segundosVeintePoke.next
+      // );
       // const cuartosVeintePoke = await queridoFetchTraedmeEsto(
       //   tercerosVeintePoke.next
       // );
@@ -169,7 +169,7 @@ module.exports = {
       const apiSuma = await primerosVeintePoke.pokemons.concat(
         segundosVeintePoke.pokemons
       )
-      .concat(tercerosVeintePoke.pokemons)
+      // .concat(tercerosVeintePoke.pokemons)
       // .concat(cuartosVeintePoke.pokemons)
       // .concat(quintosVeintePoke.pokemons);
       return apiSuma;
